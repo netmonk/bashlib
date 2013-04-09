@@ -11,5 +11,5 @@ WriteInfo "test Info"
 CustRead "Please enter text : " p 
 WriteInfo "you entered the following text : ${p}"
 Pause
-
+ExitScript 0 "Tests finished"
 
