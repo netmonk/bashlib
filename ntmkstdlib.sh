@@ -33,7 +33,7 @@
 # #############################################################################
 # v1.1, 24/01/2013, NetMonk:
 # - Fixing USECOLOR and TYPO 
-# - Added MSG header for better parsing of log file (not dependant of msg type)
+# - Added $0 MSG header for better parsing of log file (not dependant of msg type)
 # #############################################################################
 # v1.0, 10/10/2012, NetMonK: 
 # First release
@@ -107,40 +107,40 @@ fi
 WriteLogCol()
 {
   [ ${WRITELOG} -eq 0 ] && return 0
-  echo -e "$gre$(date +%d/%m/%Y\ %H:%M:%S:%N) MSG LOG: ${1}$reset"
+  echo -e "$gre$(date +%d/%m/%Y\ %H:%M:%S:%N) $0 MSG LOG: ${1}$reset"
   return 0
 }
 
 WriteInfoCol()
 {
   [ ${WRITEINFO} -eq 0 ] && return 0
-  echo -e "$gre$(date +%d/%m/%Y\ %H:%M:%S:%N) MSG INFO: ${1}$reset"
+  echo -e "$gre$(date +%d/%m/%Y\ %H:%M:%S:%N) $0 MSG INFO: ${1}$reset"
   return 0
 }
 WriteWarnCol()
 {
   [ ${WRITEWARN} -eq 0 ] && return 0
-  echo -e "$yel$(date +%d/%m/%Y\ %H:%M:%S:%N) MSG WARNING: ${1}$reset"
+  echo -e "$yel$(date +%d/%m/%Y\ %H:%M:%S:%N) $0 MSG WARNING: ${1}$reset"
   return 0
 }
 
 WriteErrCol()
 {
   [ ${WRITEERR} -eq 0 ] && return 0
-  echo -e "$red$(date +%d/%m/%Y\ %H:%M:%S:%N) MSG ERROR: ${1}$reset"
+  echo -e "$red$(date +%d/%m/%Y\ %H:%M:%S:%N) $0 MSG ERROR: ${1}$reset"
   return 0
 }
 
 WriteDebugCol()
 {
   [ ${DEBUG} -eq 0 ] && return 0
-  echo -e "$cya$(date +%d/%m/%Y\ %H:%M:%S:%N) MSG DEBUG: ${1}$reset"
+  echo -e "$cya$(date +%d/%m/%Y\ %H:%M:%S:%N) $0 MSG DEBUG: ${1}$reset"
   return 0
 }
 
 CustReadCol()
 {
-read -p "$(tput setaf 4)$(date +%d/%m/%Y\ %H:%M:%S:%N) MSG INPUT: $1$(tput sgr0)" "${@:2}"
+read -p "$(tput setaf 4)$(date +%d/%m/%Y\ %H:%M:%S:%N) $0 MSG INPUT: $1$(tput sgr0)" "${@:2}"
 }
 
 
@@ -150,41 +150,41 @@ read -p "$(tput setaf 4)$(date +%d/%m/%Y\ %H:%M:%S:%N) MSG INPUT: $1$(tput sgr0)
 WriteLogNoCol()
 {
   [ ${WRITELOG} -eq 0 ] && return 0
-  echo "$(date +%d/%m/%Y\ %H:%M:%S:%N) MSG LOG: ${1}"
+  echo "$(date +%d/%m/%Y\ %H:%M:%S:%N) $0 MSG LOG: ${1}"
   return 0
 }
 
 WriteInfoNoCol()
 {
   [ ${WRITEINFO} -eq 0 ] && return 0
-  echo "$(date +%d/%m/%Y\ %H:%M:%S:%N) MSG INFO: ${1}"
+  echo "$(date +%d/%m/%Y\ %H:%M:%S:%N) $0 MSG INFO: ${1}"
   return 0
 }
 
 WriteWarnNoCol()
 {
   [ ${WRITEWARN} -eq 0 ] && return 0
-  echo "$(date +%d/%m/%Y\ %H:%M:%S:%N) MSG WARNING: ${1}"
+  echo "$(date +%d/%m/%Y\ %H:%M:%S:%N) $0 MSG WARNING: ${1}"
   return 0
 }
 
 WriteErrNoCol()
 {
   [ ${WRITEERR} -eq 0 ] && return 0
-  echo "$(date +%d/%m/%Y\ %H:%M:%S:%N) MSG ERROR: ${1}"
+  echo "$(date +%d/%m/%Y\ %H:%M:%S:%N) $0 MSG ERROR: ${1}"
   return 0
 }
 
 WriteDebugNoCol()
 {
   [ ${DEBUG} -eq 0 ] && return 0
-  echo "$(date +%d/%m/%Y\ %H:%M:%S:%N) MSG DEBUG: ${1}"
+  echo "$(date +%d/%m/%Y\ %H:%M:%S:%N) $0 MSG DEBUG: ${1}"
   return 0
 }
 
 CustReadNoCol()
 {
-read -p "$(date +%d/%m/%Y\ %H:%M:%S:%N) MSG INPUT: $1" "${@:2}"
+read -p "$(date +%d/%m/%Y\ %H:%M:%S:%N) $0 MSG INPUT: $1" "${@:2}"
 }
 
 Pause() 
